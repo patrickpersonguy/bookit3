@@ -1,27 +1,19 @@
 import React from 'react';
-import { makeStyles } from '@mui/styles';
+import { makeStyles, styled } from '@mui/styles';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-
-const buttonStyles = makeStyles({
-    butt: {
-        color: "#36213E",
-        fontFamily: "Outfit",
-        fontSize: "22px"
-    }
-})
+import { Box } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({ 
     sidebar: {
-        width: "30%",
-        height: "100vh",
-        backgroundColor: "#fdca40",
+        backgroundColor: "#202B32",
     }
 })
 
 const headertextStyle = makeStyles({
     textheader: {
-        color: "#36213E",
+        color: "#FDF6EA",
         fontFamily: "Outfit",
         fontSize: "25px",
         padding: "20px"
@@ -30,33 +22,61 @@ const headertextStyle = makeStyles({
 
 const bodytextStyle = makeStyles({
     text: {
-        color: "#36213E",
+        color: "#FDF6EA",
         fontFamily: "Outfit",
-        fontSize: "30px",
+        fontSize: "25px",
         padding: "20px"
     }
 })
+
 
 function AppSideBar(){
     const bar = useStyles()
     const header = headertextStyle()
     const body = bodytextStyle()
-    const btn = buttonStyles()
+    const SideButton = styled(Button)({
+        color: "#FDF6EA",
+        fontFamily: "Outfit",
+        fontSize: "22px", 
+        fontWeight: "bold", 
+        "&:hover":{
+            backgroundColor: "#27353D",
+        },
+        paddingLeft: "20px" 
+    })
+
+    const LinkStyles = styled(Link)({
+        color: "#FDF6EA",
+        fontFamily: "Outfit",
+        fontSize: "22px", 
+        fontWeight: "bold", 
+        "&:hover":{
+            backgroundColor: "#27353D",
+        },
+        paddingLeft: "20px" 
+    })
+
 
     return(
-        <div className = {bar.sidebar}>
+        <Box className = {bar.sidebar} flex={1} height={"100vh"} position="sticky">
             <h2 className = {header.textheader}>book.it</h2>
             <p className = {body.text}>
             There's no such thing
             as too many books!
             </p>
 
-            <Stack spacing={0.1} direction="column" className = {btn.butt}>
-                <Button variant = "text">about us</Button>
-                <Button variant = "text">faq</Button>
-                <Button variant = "text">contact us</Button>
+            <Stack spacing={0.1} direction="column">
+                <LinkStyles to="/a">
+                    <SideButton>about us</SideButton>
+                </LinkStyles>
+                <LinkStyles to="/faq">
+                    <SideButton>faq</SideButton>
+                </LinkStyles>
+                <LinkStyles to="/contact">
+                    <SideButton>contact us</SideButton>
+                </LinkStyles>
             </Stack>
-        </div>
+        </Box>
     );
 };
 

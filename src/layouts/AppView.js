@@ -1,11 +1,16 @@
 import React from 'react';
 import { makeStyles } from '@mui/styles';
+import { Box } from '@mui/material';
+import NavBar from '../components/NavBar';
+import BookCards from '../components/BookCards';
 
 const bgStyles = makeStyles({ 
     bg: {
-        width: "70%",
-        height: "100vh",
-        backgroundColor: "#554971",
+        backgroundColor: "#2F4049",
+        justifyContent: "space-between",
+        display: "flex",
+        flexDirection: "column",
+        height: "100vh"
     }
 })
 
@@ -13,9 +18,12 @@ function AppView(){
     const background = bgStyles()
 
     return(
-        <div className = {background.bg}>
-            content
-        </div>
+        <Box className={background.bg}>
+            <NavBar/>
+            <Box flex={1}>
+                <BookCards/>
+            </Box>
+        </Box>
     )
 }
 
