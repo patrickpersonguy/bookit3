@@ -10,7 +10,7 @@ const bgStyles = makeStyles({
         justifyContent: "space-between",
         display: "flex",
         flexDirection: "column",
-        height: "100vh"
+        minHeight: "100vh" 
     }
 })
 
@@ -20,7 +20,7 @@ function AppView(){
     return(
         <Box className={background.bg}>
             <NavBar/>
-            <Box flex={1}>
+            <Box flexGrow={1}> 
                 <BookCards/>
             </Box>
         </Box>
