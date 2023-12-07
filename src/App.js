@@ -1,23 +1,16 @@
 import { Box, Stack } from '@mui/material';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import React from 'react';
 import AppView from './layouts/AppView';
 import AppSideBar from './layouts/AppSideBar';
-import AboutPage from './pages/AboutPage';
 
 function App() {
   return (
-    <Router>
-      <Box>
-        <Stack direction="row" justifyContent={"space-between"}>
-          <AppSideBar style={{ position: "fixed", top: 0, bottom: 0 }} />
-          <AppView />
-        </Stack>
-      </Box>
-      <Routes>
-        <Route path="/a" component={AboutPage} />
-      </Routes>
-    </Router>
+    <Box>
+      <Stack direction="row">
+        <AppSideBar style={{ position: "fixed", top: 0, bottom: 0 }} flexGrow={0.2} />
+        <AppView sx={{ flexGrow: 0.8 }} justifyContent={"flex-end"} />
+      </Stack>
+    </Box>
   );
 }
 

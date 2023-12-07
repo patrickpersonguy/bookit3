@@ -7,10 +7,13 @@ import BookCards from '../components/BookCards';
 const bgStyles = makeStyles({ 
     bg: {
         backgroundColor: "#2F4049",
-        justifyContent: "space-between",
         display: "flex",
         flexDirection: "column",
+        justifyContent: "space-between",
         minHeight: "100vh" 
+    },
+    navBar: {
+        height: "64px"
     }
 })
 
@@ -19,8 +22,10 @@ function AppView(){
 
     return(
         <Box className={background.bg}>
-            <NavBar/>
-            <Box flexGrow={1}> 
+            <Box className={background.navBar}>
+                <NavBar/>
+            </Box>
+            <Box flexGrow={1} display="flex" justifyContent="flex-end">
                 <BookCards/>
             </Box>
         </Box>

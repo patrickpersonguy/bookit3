@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
-import { Typography, Button, ThemeProvider, createTheme, Menu, MenuItem, Alert, Paper } from '@mui/material';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { Typography, Button, ThemeProvider, createTheme, Menu, MenuItem, Alert, Paper, Icon } from '@mui/material';
 import { styled } from '@mui/styles';
 import bookdbtest from '../bookdbtest';  //remember to comment this out when you're gonna try and connect the book db
 // this is just a temporary dbbbb
@@ -53,16 +57,25 @@ const BookCards = () => {
             return null;
         }
         return (
-            <Paper elevation={3} key={book.BookName} className="book-card" style={{ backgroundColor: '#27353D', padding: '20px', borderRadius: '10px', display: "flex", flexDirection: "column", alignItems: "right", width: "250px"}}>
+            <Paper elevation={3} key={book.BookName} className="book-card" style={{ 
+                backgroundColor: '#27353D', 
+                padding: '20px', 
+                borderRadius: '10px', 
+                display: "flex", 
+                flexDirection: "column", 
+                alignItems: "right", 
+                width: "250px",
+                marginBottom: "20px"
+                }}>
                 <img src={book.BookImage} alt={book.BookName} style={{ width: '100%', marginBottom: '10px', borderRadius: '5px', alignItems: 'center' }} />
                 <TypographyStyles variant="h6" style={{ marginBottom: '5px' }}>{book.BookName}</TypographyStyles>
                 <TypographyStyles variant="subtitle1" style={{ marginBottom: '5px' }}>By {book.BookAuthor}</TypographyStyles>
                 <TypographyStyles variant="subtitle2" style={{ marginBottom: '10px' }}>{book.BookGenre}</TypographyStyles>
                 <TypographyStyles variant="body1" style={{ marginBottom: '10px' }}>{book.BookDesc}</TypographyStyles>
-                <Button variant="contained" color="secondary" onClick={() => handleHideBook(book.BookName)} style={{ alignItems: 'left ', width: "5px"}}>
+                <Button variant="contained" color="secondary" onClick={() => handleHideBook(book.BookName)} style={{ alignItems: 'right ', width: "5px"}}>
                     HIDE
                 </Button>
-                <Button variant="contained" color="primary" onClick={() => handleLikeBook(book.BookName)} style={{ alignItems: 'left ', width: "5px"}}>
+                <Button variant="contained" color="primary" onClick={() => handleLikeBook(book.BookName)} style={{ alignItems: 'right ', width: "5px"}}>
                     LIKE
                 </Button>
                 <Button variant="contained" color="primary" onClick={handleClick} style={{ alignItems: 'right '}}>
@@ -91,20 +104,65 @@ const BookCards = () => {
 
     const genres = [...new Set(bookdbtest.map((book) => book.BookGenre))];
 
+    const scrollLeft = (genre) => {
+        const container = document.getElementById(`genre-${genre}`);
+        container.scrollLeft -= 200; 
+    };
+
+    const scrollRight = (genre) => {
+        const container = document.getElementById(`genre-${genre}`);
+        container.scrollLeft += 200; 
+        
+    };
+
+    const IconButton = styled(Icon)({
+        color: "#FDF6EA",
+        opacity: "0.5",
+        "&:hover":{opacity: "1"}
+    })
+
+    const handleScrollLeft = (genre) => {
+        const container = document.getElementById(`genre-${genre}`);
+        container.scrollLeft -= 200;
+    };
+
+    const handleScrollRight = (genre) => {
+        const container = document.getElementById(`genre-${genre}`);
+        container.scrollLeft += 200;
+    };
+
     return (
         <ThemeProvider theme={theme}>
             <div style={{ padding: "20px" }}>
                 {genres.map((genre) => (
                     <div key={genre}>
                         <TypographyStyles variant="h5" style={{ marginBottom: '20px' }}>{genre}</TypographyStyles>
-                        <div style={{ display: "flex", justifyContent: "space-between" }}>
-                            {bookCardsData.filter((book) => book && book.props.children[3].props.children === genre)}
+                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                            <IconButton onClick={() => handleScrollLeft(genre)}>
+                                <ArrowBackIosIcon/>
+                            </IconButton>
+                            <div
+                                key={genre}
+                                id={`genre-${genre}`}
+                                style={{
+                                    display: "flex",
+                                    overflowX: "auto",
+                                    scrollBehavior: "smooth",
+                                    gap: "20px",
+                                }}
+                            >
+                                {bookCardsData
+                                    .filter((book) => book && book.props.children[3].props.children === genre)
+                                    .slice(0, 3)}
+                            </div>
+                            <IconButton onClick={() => handleScrollRight(genre)}>
+                                <ArrowForwardIosIcon />
+                            </IconButton>
                         </div>
                     </div>
                 ))}
             </div>
         </ThemeProvider>
     );
-};
-
+}
 export default BookCards;

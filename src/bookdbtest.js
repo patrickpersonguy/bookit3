@@ -91,7 +91,27 @@ const bookdbtest = [
         BookDesc: "A series of fantasy novels set in the fictional realm of Narnia, featuring various adventures of children.",
         BookOnlineRead: "https://example.com/the_chronicles_of_narnia"
     },
+    {
+        BookImage: "image11.jpg",
+        BookName: "A Game of Thrones",
+        BookAuthor: "George R.R. Martin",
+        BookGenre: "Fantasy",
+        BookPDFs: "a_game_of_thrones.pdf",
+        BookDesc: "The first book in the A Song of Ice and Fire series, a tale of political intrigue, power struggles, and epic battles.",
+        BookOnlineRead: "https://example.com/a_game_of_thrones"
+    },
+    {
+        BookImage: "image12.jpg",
+        BookName: "The Name of the Wind",
+        BookAuthor: "Patrick Rothfuss",
+        BookGenre: "Fantasy",
+        BookPDFs: "the_name_of_the_wind.pdf",
+        BookDesc: "The first book in The Kingkiller Chronicle series, following the life of Kvothe, a magically gifted young man.",
+        BookOnlineRead: "https://example.com/the_name_of_the_wind"
+    }
 ];
+    
+
 
 export default bookdbtest;
 

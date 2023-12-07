@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { styled, Box, AppBar, Toolbar, InputBase, Avatar } from '@mui/material';
+import { styled, Box, AppBar, Toolbar, InputBase, Avatar, Typography } from '@mui/material';
 import usersdbtest from '../usersdbtest';
 import { Menu, MenuItem } from '@mui/material';
 
@@ -7,12 +7,19 @@ const InpBaseStyld = styled(InputBase)({
     fontFamily: "Outfit"
 });
 
-const Text = styled(InputBase)({
-    fontFamily: "Outfit",
+const headerText = styled(Typography)({
     color: "#FDF6EA",
-    display: "flex",
-    justifyContent: "space-between",
-    marginLeft: "10px"
+    fontFamily: "Outfit",
+    fontSize: "30px",
+    fontWeight: "bold",
+    padding: "20px"
+});
+
+const Text = styled(Typography)({
+    color: "#FDF6EA",
+    fontFamily: "Outfit",
+    fontSize: "16px",
+    padding: "20px"
 });
 
 const AppBarStyled = styled(AppBar)({
@@ -43,9 +50,9 @@ const IconStyled = styled(Box)({
     alignItems: "center"
 });
 
-
 const NavBar = () => {
     const [anchorEl, setAnchorEl] = useState(null); 
+    const username = usersdbtest.username;
 
     const handleMenuOpen = (event) => {
         setAnchorEl(event.currentTarget); 
@@ -56,10 +63,12 @@ const NavBar = () => {
     };
 
     return (
-        <AppBarStyled position="sticky" width="70px">
+        <AppBarStyled position="fixed" width="70px">
             <ToolbarStyled>
+                <headerText>book.it</headerText>
                 <SearchBar><InpBaseStyld placeholder="search..." /></SearchBar>
                 <IconStyled>
+                    <Text>User accounts coming soon!</Text>
                     <AvatarStyles onClick={handleMenuOpen}>U</AvatarStyles>
                     <Menu
                         anchorEl={anchorEl}
