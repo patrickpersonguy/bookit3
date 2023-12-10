@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { styled, Box, AppBar, Toolbar, InputBase, Avatar, Typography } from '@mui/material';
-import usersdbtest from '../usersdbtest';
-import { Menu, MenuItem } from '@mui/material';
 
 const InpBaseStyld = styled(InputBase)({
     fontFamily: "Outfit"
@@ -50,36 +48,23 @@ const IconStyled = styled(Box)({
     alignItems: "center"
 });
 
-const NavBar = () => {
-    const [anchorEl, setAnchorEl] = useState(null); 
-    const username = usersdbtest.username;
-
-    const handleMenuOpen = (event) => {
-        setAnchorEl(event.currentTarget); 
-    };
-
-    const handleMenuClose = () => {
-        setAnchorEl(null);
+const NavBar= ({ onSearch }) =>{
+    const [searchInput, setSearchInput] = useState("")
+    
+    const handleSearch = (value)=> {
+        setSearchInput(value);
+        onSearch(value);
     };
 
     return (
         <AppBarStyled position="fixed" width="70px">
             <ToolbarStyled>
                 <headerText>book.it</headerText>
-                <SearchBar><InpBaseStyld placeholder="search..." /></SearchBar>
+                <SearchBar>
+                    <InpBaseStyld placeholder="search for a book..." value={searchInput} onChange={(e) => handleSearch(e.target.value)} />
+                </SearchBar>
                 <IconStyled>
                     <Text>User accounts coming soon!</Text>
-                    <AvatarStyles onClick={handleMenuOpen}>U</AvatarStyles>
-                    <Menu
-                        anchorEl={anchorEl}
-                        open={Boolean(anchorEl)}
-                        onClose={handleMenuClose}
-                    >
-                        <MenuItem onClick={handleMenuClose}>Profile settings</MenuItem>
-                        <MenuItem onClick={handleMenuClose}>Liked Books</MenuItem>
-                        <MenuItem onClick={handleMenuClose}>Hidden Books</MenuItem>
-                        <MenuItem onClick={handleMenuClose}>Reviews</MenuItem>
-                    </Menu>
                 </IconStyled>
             </ToolbarStyled>
         </AppBarStyled>

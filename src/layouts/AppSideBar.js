@@ -1,12 +1,12 @@
 import React from 'react';
 import { makeStyles } from '@mui/styles';
-import { Box, Typography } from '@mui/material';
-import { styled } from '@mui/styles';
+import { Box, Stack, Divider } from '@mui/material';
 import CustomizedAccordions from '../components/Accordion';
 
 const useStyles = makeStyles((theme) => ({
     sidebar: {
         backgroundColor: "#202B32",
+        
     },
     textheader: {
         color: "#FDF6EA",
@@ -56,16 +56,21 @@ const useStyles = makeStyles((theme) => ({
 function AppSideBar() {
     const classes = useStyles();
     return (
-        <Box className={classes.sidebar} flexGrow={1} width={"25%"} height={"100vh"} position="fixed" overflow="auto">
+        <Box className={classes.sidebar} flexGrow={1} width={"20%"} height={"100vh"} position="fixed" overflow="auto">
             <br/>
             <br/>
             <br/>
-            <p className={classes.text}>
-                There's no such thing
-                as too many books!
-            </p>
-
-            <CustomizedAccordions/>
+            <br/>
+            <Stack    
+                direction="column"
+                divider={<Divider orientation="horizontal" flexItem />}
+                spacing={2}>
+                <CustomizedAccordions/>
+                <p className={classes.text}>
+                    There's no such thing
+                    as too many books!
+                </p>
+            </Stack>
         </Box>
     );
 }

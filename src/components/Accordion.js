@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { styled } from '@mui/material/styles';
 import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
 import MuiAccordion from '@mui/material/Accordion';
@@ -50,6 +50,7 @@ export default function CustomizedAccordions() {
   const [expanded, setExpanded] = React.useState('panel1');
   const [allGenres,  setAllGenres] = useState([]);
   const [allAuthors, setAllAuthors] = useState([]);
+  const genreRefs = useRef([]);
 
   const uniqueGenres = [...new Set(allGenres.map((genre) => genre.BookGenre))];
   const uniqueAuthors = [...new Set(allAuthors.map((author) => author.BookAuthor))];
@@ -68,6 +69,9 @@ export default function CustomizedAccordions() {
       setAllAuthors(bookdbtest)
   }, [])
 
+  const scrollToGenre = (index) => {
+    genreRefs.current[index].scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <div>
@@ -110,10 +114,17 @@ export default function CustomizedAccordions() {
         </AccordionSummary>
         <AccordionDetails>
           <TypographyStyles>
-            {uniqueGenres.map((genre) => (
-              <>
-                  {genre} <br/>
-              </>
+            {uniqueGenres.map((genre, index) => (
+              <React.Fragment key={index}>
+                <span
+                  ref={(ref) => (genreRefs.current[index] = ref)}
+                  style={{ cursor: 'pointer', textDecoration: 'underline' }}
+                  onClick={() => scrollToGenre(index)}
+                >
+                  {genre}
+                </span>
+                <br />
+            </React.Fragment>
             ))}
           </TypographyStyles>
         </AccordionDetails>

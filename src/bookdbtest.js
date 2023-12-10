@@ -8,7 +8,7 @@ const bookdbtest = [
         BookGenre: "Classic",
         BookPDFs: "gatsby.pdf",
         BookDesc: "The story of the fabulously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan.",
-        BookOnlineRead: "https://example.com/gatsby"
+        BookOnlineRead: "https://www.googleapis.com/books/v1/volumes?q=The+Great+Gatsby"
     },
     {
         BookImage: "https://www.hollywoodreporter.com/wp-content/uploads/2021/06/M8DREDO_EC001.jpg?w=1296",
@@ -17,7 +17,7 @@ const bookdbtest = [
         BookGenre: "Classic",
         BookPDFs: "mockingbird.pdf",
         BookDesc: "The story of Scout Finch and her brother Jem, and their father Atticus, who defends a black man accused of rape.",
-        BookOnlineRead: "https://example.com/mockingbird"
+        BookOnlineRead: "https://www.googleapis.com/books/v1/volumes?q=To+Kill+a+Mockingbird"
     },
     {
         BookImage: "https://www.hollywoodreporter.com/wp-content/uploads/2021/06/M8DREDO_EC001.jpg?w=1296",
@@ -26,7 +26,7 @@ const bookdbtest = [
         BookGenre: "Dystopian",
         BookPDFs: "1984.pdf",
         BookDesc: "A dystopian novel set in a totalitarian society where independent thinking is brutally suppressed.",
-        BookOnlineRead: "https://example.com/1984"
+        BookOnlineRead: "https://www.googleapis.com/books/v1/volumes?q=1984"
     },
     {
         BookImage: "image4.jpg",
@@ -35,7 +35,7 @@ const bookdbtest = [
         BookGenre: "Classic",
         BookPDFs: "pride_prejudice.pdf",
         BookDesc: "A story of love, reputation, and societal expectations in 19th-century England.",
-        BookOnlineRead: "https://example.com/pride_prejudice"
+        BookOnlineRead: "https://www.googleapis.com/books/v1/volumes?q=Pride+and+Prejudice"
     },
     {
         BookImage: "image5.jpg",
@@ -44,7 +44,7 @@ const bookdbtest = [
         BookGenre: "Coming-of-age",
         BookPDFs: "catcher_in_the_rye.pdf",
         BookDesc: "The story of Holden Caulfield's experiences in New York City after being expelled from prep school.",
-        BookOnlineRead: "https://example.com/catcher_in_the_rye"
+        BookOnlineRead: "https://www.googleapis.com/books/v1/volumes?q=The+Catcher+in+the+Rye"
     },
     {
         BookImage: "image6.jpg",
@@ -53,7 +53,7 @@ const bookdbtest = [
         BookGenre: "Fantasy",
         BookPDFs: "harry_potter_sorcerers_stone.pdf",
         BookDesc: "The first book in the Harry Potter series, following the journey of a young wizard.",
-        BookOnlineRead: "https://example.com/harry_potter_sorcerers_stone"
+        BookOnlineRead: "https://www.googleapis.com/books/v1/volumes?q=Harry+Potter+and+the+Sorcerer's+Stone"
     },
     {
         BookImage: "image7.jpg",
@@ -62,7 +62,7 @@ const bookdbtest = [
         BookGenre: "Fantasy",
         BookPDFs: "the_hobbit.pdf",
         BookDesc: "The prelude to The Lord of the Rings, telling the story of Bilbo Baggins' adventure to reclaim the Lonely Mountain.",
-        BookOnlineRead: "https://example.com/the_hobbit"
+        BookOnlineRead: "https://www.googleapis.com/books/v1/volumes?q=The+Hobbit"
     },
     {
         BookImage: "image8.jpg",
@@ -71,7 +71,7 @@ const bookdbtest = [
         BookGenre: "Philosophical",
         BookPDFs: "the_alchemist.pdf",
         BookDesc: "A novel about a young Andalusian shepherd named Santiago and his journey to find his personal legend.",
-        BookOnlineRead: "https://example.com/the_alchemist"
+        BookOnlineRead: "https://www.googleapis.com/books/v1/volumes?q=The+Alchemist"
     },
     {
         BookImage: "image9.jpg",
@@ -80,7 +80,7 @@ const bookdbtest = [
         BookGenre: "Fantasy",
         BookPDFs: "the_lord_of_the_rings.pdf",
         BookDesc: "An epic high fantasy novel that follows the quest to destroy the One Ring and defeat the Dark Lord Sauron.",
-        BookOnlineRead: "https://example.com/the_lord_of_the_rings"
+        BookOnlineRead: "https://www.googleapis.com/books/v1/volumes?q=The+Lord+of+the+Rings"
     },
     {
         BookImage: "image10.jpg",
@@ -89,7 +89,7 @@ const bookdbtest = [
         BookGenre: "Fantasy",
         BookPDFs: "the_chronicles_of_narnia.pdf",
         BookDesc: "A series of fantasy novels set in the fictional realm of Narnia, featuring various adventures of children.",
-        BookOnlineRead: "https://example.com/the_chronicles_of_narnia"
+        BookOnlineRead: "https://www.googleapis.com/books/v1/volumes?q=The+Chronicles+of+Narnia"
     },
     {
         BookImage: "image11.jpg",
@@ -98,7 +98,7 @@ const bookdbtest = [
         BookGenre: "Fantasy",
         BookPDFs: "a_game_of_thrones.pdf",
         BookDesc: "The first book in the A Song of Ice and Fire series, a tale of political intrigue, power struggles, and epic battles.",
-        BookOnlineRead: "https://example.com/a_game_of_thrones"
+        BookOnlineRead: "https://www.googleapis.com/books/v1/volumes?q=A+Game+of+Thrones"
     },
     {
         BookImage: "image12.jpg",
@@ -107,7 +107,7 @@ const bookdbtest = [
         BookGenre: "Fantasy",
         BookPDFs: "the_name_of_the_wind.pdf",
         BookDesc: "The first book in The Kingkiller Chronicle series, following the life of Kvothe, a magically gifted young man.",
-        BookOnlineRead: "https://example.com/the_name_of_the_wind"
+        BookOnlineRead: "https://www.googleapis.com/books/v1/volumes?q=The+Name+of+the+Wind"
     }
 ];
     

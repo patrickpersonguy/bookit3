@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@mui/styles';
-import { Box } from '@mui/material';
+import { Box, Container, Stack } from '@mui/material';
 import NavBar from '../components/NavBar';
 import BookCards from '../components/BookCards';
 
@@ -9,7 +9,6 @@ const bgStyles = makeStyles({
         backgroundColor: "#2F4049",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-between",
         minHeight: "100vh" 
     },
     navBar: {
@@ -19,16 +18,24 @@ const bgStyles = makeStyles({
 
 function AppView(){
     const background = bgStyles()
+    const [searchQuery, setSearchQuery] = useState("");
+
+    const handleSearch = (query) => {
+        setSearchQuery(query);
+    };
 
     return(
-        <Box className={background.bg}>
+        <Container className={background.bg} display="flex" justifyContent="flex-end" maxWidth="100%" position="fixed" style={{ overflow: "hidden"}}>
             <Box className={background.navBar}>
-                <NavBar/>
+                <NavBar onSearch={handleSearch} />
             </Box>
-            <Box flexGrow={1} display="flex" justifyContent="flex-end">
-                <BookCards/>
-            </Box>
-        </Box>
+            <Stack direction="row" justifycontent="flex-end">
+                <Box width={"8%"} height={"100vh"} style={{ flexShrink: 0 }}/>
+                <Container display="flex" justifyContent="flex-end" maxWidth="100%" style={{ marginBottom: "10px" }}>
+                    <BookCards searchQuery={searchQuery} />
+                </Container>
+            </Stack>
+        </Container>
     )
 }
 

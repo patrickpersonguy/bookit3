@@ -6,9 +6,10 @@ import AppSideBar from './layouts/AppSideBar';
 function App() {
   return (
     <Box>
-      <Stack direction="row">
-        <AppSideBar style={{ position: "fixed", top: 0, bottom: 0 }} flexGrow={0.2} />
-        <AppView sx={{ flexGrow: 0.8 }} justifyContent={"flex-end"} />
+      <Stack direction="row" justifycontent="space-between">
+        <AppSideBar/>
+        <Box flexGrow={1} width={"20%"} height={"100vh"}/>
+        <AppView />
       </Stack>
     </Box>
   );
