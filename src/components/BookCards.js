@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { Typography, Button, ThemeProvider, createTheme, Menu, MenuItem, Paper, Icon, Card } from '@mui/material';
 import { styled } from '@mui/styles';
-import bookdbtest from '../bookdbtest';  //remember to comment this out when you're gonna try and connect the book db
+import bookdbtest from '../bookdbtest';  //remember to comment this out when you're gonna try and connect the actual book db
 // this is just a temporary dbbbb
 //the elements are BookImage, BookAuthor, BookName, BookGenre, BookDesc, BookPDFs, and BookOnlineRead
 
@@ -27,8 +25,9 @@ const TypographyStyles = styled(Typography)({
     color: "#FDF6EA",
 })
 
-const BookCards = () => {
+const BookCards = (props) => {
     const [anchorEl, setAnchorEl] = useState(null);
+    const genreRefs = useRef({});
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -39,6 +38,7 @@ const BookCards = () => {
     };
 
     //i think this is where you will make most of your changes, jeaaaa, hopefully the names of each db element is the sammeee huhu
+    //but dont stress lang if there's no time, we can just use bookdbtest.js, just replace BookPDF and BookOnlineRead with the actual links and .pdf files for the books
     const bookCardsData = bookdbtest && bookdbtest.map((book) => {
         return (
             <Paper elevation={3} key={book.BookName} className="book-card" style={{ 
@@ -96,14 +96,14 @@ const BookCards = () => {
     const handleScrollLeft = (genre) => {
         const container = document.getElementById(`genre-${genre}`);
         if (container) {
-            container.scrollLeft -= 500;
+            container.scrollLeft -= 700;
         }
     };
 
     const handleScrollRight = (genre) => {
         const container = document.getElementById(`genre-${genre}`);
         if (container) {
-            container.scrollLeft += 500;
+            container.scrollLeft += 700;
         }
     };
 
@@ -111,8 +111,8 @@ const BookCards = () => {
         <ThemeProvider theme={theme}>
             <div>
                 {genres.map((genre) => (
-                    <div key={genre}>
-                        <TypographyStyles variant="h5" style={{ marginBottom: '20px' }}>{genre}</TypographyStyles>
+                    <div key={genre} ref={ref => genreRefs.current[genre] = ref}>
+                        <TypographyStyles variant="h4" style={{ marginBottom: '20px' }}>{genre}</TypographyStyles>
                         <div style={{ display: "flex", justifycontent: "space-between", alignItems: "center", width: "100%"}}>
                             <IconButton onClick={() => handleScrollLeft(genre)}>
                                 <ArrowBackIosIcon/>
@@ -143,4 +143,5 @@ const BookCards = () => {
         </ThemeProvider>
     );
 }
+
 export default BookCards;

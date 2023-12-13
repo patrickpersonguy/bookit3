@@ -2,6 +2,7 @@ import { Box, Stack } from '@mui/material';
 import React from 'react';
 import AppView from './layouts/AppView';
 import AppSideBar from './layouts/AppSideBar';
+//no need to touch i guess
 
 function App() {
   return (

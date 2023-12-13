@@ -55,10 +55,10 @@ const useStyles = makeStyles((theme) => ({
 
 function AppSideBar() {
     const classes = useStyles();
+
     return (
         <Box className={classes.sidebar} flexGrow={1} width={"20%"} height={"100vh"} position="fixed" overflow="auto">
-            <br/>
-            <br/>
+            <h2 className={classes.textheader}>book.it</h2>
             <br/>
             <br/>
             <Stack    

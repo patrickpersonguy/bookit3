@@ -1,4 +1,5 @@
-//test db to see if book cards will generateeee, bookcards are still ugly will fix soon
+//test db to see if book cards will generateeee, will be replaced with actual database later if possible
+//if there's no time, just create a new database here with actual links and .pdf files for the books, and replace BookImages with actual covers of the book
 
 const bookdbtest = [
     {
@@ -108,7 +109,97 @@ const bookdbtest = [
         BookPDFs: "the_name_of_the_wind.pdf",
         BookDesc: "The first book in The Kingkiller Chronicle series, following the life of Kvothe, a magically gifted young man.",
         BookOnlineRead: "https://www.googleapis.com/books/v1/volumes?q=The+Name+of+the+Wind"
-    }
+    },
+    {
+    BookImage: "image13.jpg",
+        BookName: "The Picture of Dorian Gray",
+        BookAuthor: "Oscar Wilde",
+        BookGenre: "Classic",
+        BookPDFs: "dorian_gray.pdf",
+        BookDesc: "A novel about a young man named Dorian Gray who remains eternally youthful while a portrait of him ages and reflects his moral decay.",
+        BookOnlineRead: "https://www.googleapis.com/books/v1/volumes?q=The+Picture+of+Dorian+Gray"
+    },
+    {
+        BookImage: "image14.jpg",
+        BookName: "The Adventures of Tom Sawyer",
+        BookAuthor: "Mark Twain",
+        BookGenre: "Classic",
+        BookPDFs: "tom_sawyer.pdf",
+        BookDesc: "The story of a mischievous young boy named Tom Sawyer and his adventures in a small town on the Mississippi River.",
+        BookOnlineRead: "https://www.googleapis.com/books/v1/volumes?q=The+Adventures+of+Tom+Sawyer"
+    },
+    {
+        BookImage: "image15.jpg",
+        BookName: "Moby-Dick",
+        BookAuthor: "Herman Melville",
+        BookGenre: "Classic",
+        BookPDFs: "moby_dick.pdf",
+        BookDesc: "The story of Captain Ahab's obsessive quest for revenge against the white whale, Moby Dick.",
+        BookOnlineRead: "https://www.googleapis.com/books/v1/volumes?q=Moby-Dick"
+    },
+    {
+        BookImage: "image16.jpg",
+        BookName: "Jane Eyre",
+        BookAuthor: "Charlotte Bronte",
+        BookGenre: "Classic",
+        BookPDFs: "jane_eyre.pdf",
+        BookDesc: "The story of a young orphan girl named Jane Eyre and her journey to find love, independence, and self-discovery.",
+        BookOnlineRead: "https://www.googleapis.com/books/v1/volumes?q=Jane+Eyre"
+    },
+    {
+        BookImage: "image17.jpg",
+        BookName: "The Count of Monte Cristo",
+        BookAuthor: "Alexandre Dumas",
+        BookGenre: "Classic",
+        BookPDFs: "count_of_monte_cristo.pdf",
+        BookDesc: "The story of Edmond Dantes, a young sailor who is wrongfully imprisoned and seeks revenge against those who betrayed him.",
+        BookOnlineRead: "https://www.googleapis.com/books/v1/volumes?q=The+Count+of+Monte+Cristo"
+    },
+    {
+        BookImage: "image18.jpg",
+        BookName: "Brave New World",
+        BookAuthor: "Aldous Huxley",
+        BookGenre: "Dystopian",
+        BookPDFs: "brave_new_world.pdf",
+        BookDesc: "A dystopian novel set in a futuristic society where people are genetically engineered and conditioned for conformity.",
+        BookOnlineRead: "https://www.googleapis.com/books/v1/volumes?q=Brave+New+World"
+    },
+    {
+        BookImage: "image19.jpg",
+        BookName: "The Odyssey",
+        BookAuthor: "Homer",
+        BookGenre: "Epic",
+        BookPDFs: "the_odyssey.pdf",
+        BookDesc: "An epic poem that follows the Greek hero Odysseus on his journey home after the Trojan War.",
+        BookOnlineRead: "https://www.googleapis.com/books/v1/volumes?q=The+Odyssey"
+    },
+    {
+        BookImage: "image20.jpg",
+        BookName: "The Scarlet Letter",
+        BookAuthor: "Nathaniel Hawthorne",
+        BookGenre: "Classic",
+        BookPDFs: "scarlet_letter.pdf",
+        BookDesc: "The story of Hester Prynne, who is forced to wear a scarlet letter 'A' as a symbol of her adultery in 17th-century Puritan Boston.",
+        BookOnlineRead: "https://www.googleapis.com/books/v1/volumes?q=The+Scarlet+Letter"
+    },
+    {
+        BookImage: "image21.jpg",
+        BookName: "The Brothers Karamazov",
+        BookAuthor: "Fyodor Dostoevsky",
+        BookGenre: "Classic",
+        BookPDFs: "brothers_karamazov.pdf",
+        BookDesc: "A philosophical novel that explores themes of morality, faith, and the nature of evil through the lives of three brothers.",
+        BookOnlineRead: "https://www.googleapis.com/books/v1/volumes?q=The+Brothers+Karamazov"
+    },
+    {
+        BookImage: "image22.jpg",
+        BookName: "The Shining",
+        BookAuthor: "Stephen King",
+        BookGenre: "Horror",
+        BookPDFs: "the_shining.pdf",
+        BookDesc: "A psychological horror novel about a writer and his family who become caretakers of an isolated hotel during the winter.",
+        BookOnlineRead: "https://www.googleapis.com/books/v1/volumes?q=The+Shining"
+    },
 ];
     
 

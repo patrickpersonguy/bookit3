@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { styled, Box, AppBar, Toolbar, InputBase, Avatar, Typography } from '@mui/material';
-
-const InpBaseStyld = styled(InputBase)({
-    fontFamily: "Outfit"
-});
+import SearchBar from './SearchBar';
+import bookdbtest from '../bookdbtest';
 
 const headerText = styled(Typography)({
     color: "#FDF6EA",
@@ -24,16 +22,12 @@ const AppBarStyled = styled(AppBar)({
     backgroundColor: "#445A65",
 });
 
-const AvatarStyles = styled(Avatar)({
-    display: "flex",
-});
-
 const ToolbarStyled = styled(Toolbar)({
     display: "flex",
     justifyContent: "space-between"
 });
 
-const SearchBar = styled("div")({
+const SearchBarStyled = styled(SearchBar)({
     backgroundColor: "#5A7887",
     padding: "0 10px",
     borderRadius: "10px",
@@ -48,23 +42,13 @@ const IconStyled = styled(Box)({
     alignItems: "center"
 });
 
-const NavBar= ({ onSearch }) =>{
-    const [searchInput, setSearchInput] = useState("")
-    
-    const handleSearch = (value)=> {
-        setSearchInput(value);
-        onSearch(value);
-    };
-
+const NavBar= () =>{
     return (
-        <AppBarStyled position="fixed" width="70px">
+        <AppBarStyled width="70px">
             <ToolbarStyled>
-                <headerText>book.it</headerText>
-                <SearchBar>
-                    <InpBaseStyld placeholder="search for a book..." value={searchInput} onChange={(e) => handleSearch(e.target.value)} />
-                </SearchBar>
+                <h2>book.it</h2>
+                    <SearchBarStyled placeholder="Search for a book..." data={bookdbtest}/>
                 <IconStyled>
-                    <Text>User accounts coming soon!</Text>
                 </IconStyled>
             </ToolbarStyled>
         </AppBarStyled>

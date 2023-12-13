@@ -47,7 +47,7 @@ const TypographyStyles = styled(Typography)({
 })
 
 export default function CustomizedAccordions() {
-  const [expanded, setExpanded] = React.useState('panel1');
+  const [expanded, setExpanded] = React.useState('');
   const [allGenres,  setAllGenres] = useState([]);
   const [allAuthors, setAllAuthors] = useState([]);
   const genreRefs = useRef([]);
@@ -81,7 +81,7 @@ export default function CustomizedAccordions() {
         </AccordionSummary>
         <AccordionDetails>
           <TypographyStyles>
-            Book.it is a simple web application that allows you to look for books, and read them. Wow.
+            Book.it is a simple website that allows you to discover new books, learn more about said books, and find out where you can get your hands on them!
           </TypographyStyles>
         </AccordionDetails>
       </Accordion>
@@ -108,41 +108,42 @@ export default function CustomizedAccordions() {
           </TypographyStyles>
         </AccordionDetails>
       </Accordion>
-      <Accordion expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
-        <AccordionSummary aria-controls="panel4d-content" id="panel4d-header">
-          <TypographyStyles>Genres</TypographyStyles>
+      <Accordion expanded={expanded === 'genres'} onChange={handleChange('genres')} style={{ width: "100%" }}>
+        <AccordionSummary aria-controls="genres-content" id="genres-header">
+            <TypographyStyles>Genres</TypographyStyles>
         </AccordionSummary>
         <AccordionDetails>
-          <TypographyStyles>
-            {uniqueGenres.map((genre, index) => (
-              <React.Fragment key={index}>
-                <span
-                  ref={(ref) => (genreRefs.current[index] = ref)}
-                  style={{ cursor: 'pointer', textDecoration: 'underline' }}
-                  onClick={() => scrollToGenre(index)}
-                >
-                  {genre}
-                </span>
-                <br />
-            </React.Fragment>
-            ))}
-          </TypographyStyles>
+            <TypographyStyles>
+                {uniqueGenres.map((genre, index) => (
+                    <React.Fragment key={index}>
+                        <span
+                            id={`genre-header-${genre}`}
+                            ref={(ref) => (genreRefs.current[index] = ref)}
+                            style={{ cursor: 'pointer' }}
+                        >
+                            {genre}
+                        </span>
+                        <br />
+                    </React.Fragment>
+                ))}
+            </TypographyStyles>
         </AccordionDetails>
-      </Accordion>
-      <Accordion expanded={expanded === 'panel5'} onChange={handleChange('panel5')}>
+    </Accordion>
+
+    <Accordion expanded={expanded === 'panel5'} onChange={handleChange('panel5')} style={{ width: "100%" }}>
         <AccordionSummary aria-controls="panel5d-content" id="panel5d-header">
-          <TypographyStyles>Authors</TypographyStyles>
+            <TypographyStyles>Authors</TypographyStyles>
         </AccordionSummary>
         <AccordionDetails>
-          <TypographyStyles>
-            {uniqueAuthors.map((author) => (
-              <>
-                 {author} <br/>
-              </>
-            ))}
-          </TypographyStyles>
+            <TypographyStyles>
+                {uniqueAuthors.map((author) => (
+                    <>
+                        {author} <br/>
+                    </>
+                ))}
+            </TypographyStyles>
         </AccordionDetails>
-      </Accordion>
+    </Accordion>
     </div>
   );
 }
