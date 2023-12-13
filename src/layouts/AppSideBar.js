@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@mui/styles';
 import { Box, Stack, Divider } from '@mui/material';
 import CustomizedAccordions from '../components/Accordion';
+import './bg1.png';
 
 const useStyles = makeStyles((theme) => ({
     sidebar: {
@@ -70,6 +71,9 @@ function AppSideBar() {
                     There's no such thing
                     as too many books!
                 </p>
+                <div style={{
+                    backgroundImage: 'bg1.png'}}
+                />
             </Stack>
         </Box>
     );
